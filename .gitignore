@@ -1,0 +1,44 @@
+# Build directories
+build/
+bin/
+install/
+out/
+
+# Visual Studio files
+.vs/
+*.sln
+*.vcxproj*
+*.user
+*.suo
+
+# Compiled binaries and libraries
+*.dll
+*.lib
+*.so
+*.dylib
+*.a
+*.exe
+*.exp
+*.pdb
+*.ilk
+*.obj
+*.o
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Houdini temporary files
+*.hipnc.bak*
+*.hip.bak*
+*.bgeo.sc
+*.crash
+crash.*.txt

@@ -1,0 +1,21 @@
+{
+    "package_path": "@PLUGIN_OUTPUT_DIR@",
+    "enable": true,
+    "env": [
+        {
+            "HOUDINI_DSO_PATH": {
+                "value": "@PLUGIN_OUTPUT_DIR@/dso;&"
+            }
+        },
+        {
+            "PYTHONPATH": {
+                "value": "@PLUGIN_OUTPUT_DIR@/scripts/python;&"
+            }
+        },
+        {
+            "HOUDINI_PATH": {
+                "value": "@PLUGIN_OUTPUT_DIR@;&"
+            }
+        }
+    ]
+}

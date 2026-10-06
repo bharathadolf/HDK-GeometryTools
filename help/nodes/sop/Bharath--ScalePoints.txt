@@ -1,0 +1,57 @@
+= Bharath Scale Points =
+
+"""Multithreaded C++ Surface Operator (SOP) that scales, offsets, recalculates attributes, and filters points using point groups."""
+
+#type: node
+#context: sop
+#internal: Bharath::ScalePoints
+#icon: SOP_xform
+
+@overview
+
+The **Bharath Scale Points** SOP is a high-performance C++ operator developed using the Houdini Development Kit (HDK). It performs affine point transformations around an arbitrary pivot point, computes displacement color tints (`Cd`), recalculates surface normals (`N`), updates particle scale (`pscale`), and utilizes multithreaded task splitting with `UT_ParallelFor`.
+
+@parameters
+
+Group:
+    #id: group
+    A point group or pattern (e.g. `0-10`, `@P.y>0`, `my_group`) specifying which points should undergo transformation. If blank, all points are transformed.
+
+Scale:
+    #id: scale
+    Non-uniform scale multipliers along the X, Y, and Z axes applied relative to the pivot **Center**.
+
+Center:
+    #id: center
+    The pivot center point from which scaling expands or contracts.
+
+Offset:
+    #id: offset
+    Linear translation vector applied after scaling.
+
+Recalculate Normals (N):
+    #id: upd_normals
+    When enabled, updates the point normal attribute using inverse-transpose scale rules, ensuring accurate shading.
+
+Compute Velocity/Scale Tint (Cd):
+    #id: upd_color
+    When enabled, computes a color gradient on each point based on the magnitude of displacement from its original position.
+
+Multiply pscale:
+    #id: upd_pscale
+    When enabled, scales the point attribute `pscale` proportionally to the average geometric scaling factor.
+
+pscale Multiplier:
+    #id: pscale_val
+    A user-defined scalar multiplied into `pscale`.
+
+@inputs
+
+Input 0:
+    Geometry containing points to be transformed.
+
+@seealso
+
+* [Node:sop/xform]
+* [Node:sop/point]
+* [Node:sop/attribwrangle]
